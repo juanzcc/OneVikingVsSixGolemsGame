@@ -1,0 +1,153 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Assets/BG.png" type="Texture" id=1]
+[ext_resource path="res://Assets/knight/Idle/idle5.png" type="Texture" id=2]
+[ext_resource path="res://Assets/knight/Idle/idle3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/knight/Idle/idle6.png" type="Texture" id=4]
+[ext_resource path="res://Assets/knight/Idle/idle4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/knight/Idle/idle2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Golem/Dying/Golem_01_Dying_014.png" type="Texture" id=7]
+[ext_resource path="res://Assets/knight/Idle/idle7.png" type="Texture" id=8]
+[ext_resource path="res://Assets/knight/Idle/idle1.png" type="Texture" id=9]
+[ext_resource path="res://src/MenuGame.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://font/ALGER.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 200
+outline_size = 2
+font_data = SubResource( 1 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Win",
+"speed": 10.0
+} ]
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://font/ALGER.TTF"
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 4 )
+
+[node name="LoserScene" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1023.0
+margin_bottom = 620.0
+texture = ExtResource( 1 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 59.8364
+margin_top = 37.9092
+margin_right = 1040.83
+margin_bottom = 433.909
+custom_fonts/font = SubResource( 2 )
+text = "You Win!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 576.69, 336.138 )
+scale = Vector2( 3.66226, 3.12401 )
+frames = SubResource( 3 )
+animation = "Win"
+frame = 5
+playing = true
+
+[node name="MenuGame" type="Button" parent="."]
+margin_left = 362.708
+margin_top = 516.116
+margin_right = 636.708
+margin_bottom = 573.116
+custom_fonts/font = SubResource( 5 )
+text = "Menu"
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = -19.0703
+margin_top = 383.476
+margin_right = 395.93
+margin_bottom = 612.476
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+margin_left = -19.0703
+margin_top = 225.616
+margin_right = 395.93
+margin_bottom = 454.616
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 38.6471
+margin_top = 305.075
+margin_right = 453.647
+margin_bottom = 534.075
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+margin_left = 617.114
+margin_top = 383.476
+margin_right = 1032.11
+margin_bottom = 612.476
+texture = ExtResource( 7 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+margin_left = 617.114
+margin_top = 241.508
+margin_right = 1032.11
+margin_bottom = 470.508
+texture = ExtResource( 7 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+margin_left = 568.378
+margin_top = 305.075
+margin_right = 983.378
+margin_bottom = 534.075
+texture = ExtResource( 7 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MenuGame" to="MenuGame" method="_on_MenuGame_pressed"]
+[connection signal="pressed" from="MenuGame" to="MenuGame" method="_on_RestartGame_pressed"]
